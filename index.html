@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Daily planner</title>
+  </head>
+  <body>
+    <div class="planner">
+      <h1>Daily planner</h1>
+      <p>Добавить задачу</p>
+      <form id="form">
+        <input type="text" id="task" placeholder="Задача" />
+        <button type="submit">Добавить</button>
+      </form>
+      <p>Список задач</p>
+      <div class="planner__container">
+        <div class="planner__list">
+          <!-- <div class="planner__item">
+            <span class="planner__task">сделать домашку по js</span>
+            <input type="checkbox" />
+          </div> -->
+        </div>
+        <p id="open-closed">Нет задач</p>
+      </div>
+
+      <button class="planner__button-clean" type="submit">
+        Очистить список
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

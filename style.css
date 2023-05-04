@@ -1,0 +1,50 @@
+body {
+  background: #aad3a5 url(fon.jpg) no-repeat;
+}
+.planner {
+  margin-left: 15px;
+}
+p {
+  font-size: 20px;
+}
+.planner__container {
+  background-color: #d3cca5;
+  width: 50vw;
+  padding: 15px;
+}
+button {
+  width: 180px;
+  height: 30px;
+  background-color: #bd8958;
+  border: none;
+}
+#task {
+  width: 400px;
+  height: 28px;
+  background-color: #d3cca5;
+  border: none;
+}
+.planner__button-clean {
+  margin-top: 10px;
+}
+.planner__item {
+  border: rgba(63, 63, 63, 0.503) solid 1px;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.planner__check {
+  background-color: #d3cca5;
+  width: 20px;
+  height: 20px;
+}
+.closed {
+  display: none;
+}
+.open {
+  display: block;
+}
