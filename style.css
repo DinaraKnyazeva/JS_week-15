@@ -48,3 +48,6 @@ button {
 .open {
   display: block;
 }
+#open-closed {
+  color: gray;
+}

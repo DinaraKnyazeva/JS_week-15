@@ -1,19 +1,25 @@
-// Создаём приложение «Планировщик задач».
-// + В приложении должен быть input для ввода текста задачи и кнопка для её добавления в «Список задач».
-// + Ниже должен быть «Список задач» и кнопка «Очистить список».
-// - Когда задач нет, должно быть серое уведомление о том, что задачи отсутствуют, а кнопка «Очистить список» должна быть неактивна.
-// - При добавлении задачи в список, каждая из них должна появляться в списке задач и напротив иметь неактивный чекбокс, а кнопка «Очистить список» должна быть активна.
-// + Каждый чекбокс напротив задачи должен менять своё состояние при клике (говоря нам, что задача выполнена).
-// + При клике на кнопку «Очистить список» все задачи должны удаляться.
 //выбираю элемент с id="task"
 let inputTask = document.getElementById("task");
 //выбираю элемент кнопки - очистить список
 let buttonClean = document.querySelector(".planner__button-clean");
 //выбираю элемент с классом "planner__list" (контейнер для задач)
 let plannerListContainer = document.querySelector(".planner__list");
-
 //выбираю элемент с id "open-closed"
 let openClosed = document.getElementById("open-closed");
+
+// Функция, которая обновляет состояние уведомления о списке задач и кнопки "Очистить список"
+function upDateTaskListStatus() {
+  if (plannerListContainer.children.length > 0) {
+    //если добавлены задачи (длина дочерних элементов let plannerListContainer больше 0), то добавляем класс "closed", а "open" удаляем и наоборот
+    openClosed.classList.remove("open");
+    openClosed.classList.add("closed");
+    buttonClean.disabled = false;
+  } else {
+    openClosed.classList.remove("closed");
+    openClosed.classList.add("open");
+    buttonClean.disabled = true;
+  }
+}
 
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault(); //отменяем стандартное поведение браузера
@@ -31,22 +37,11 @@ document.querySelector("form").addEventListener("submit", (event) => {
   plannerListContainer.appendChild(listItem);
   //очищаю значения инпутов
   inputTask.value = "";
-  if (plannerListContainer.children.length > 0) {
-    openClosed.classList.remove("open");
-    openClosed.classList.add("closed");
-  } else {
-    openClosed.classList.remove("closed");
-    openClosed.classList.add("open");
-  }
+  upDateTaskListStatus();
   //добавляю событие: при клике на кнопку "очистить"
   buttonClean.addEventListener("click", () => {
     plannerListContainer.innerHTML = "";
+    upDateTaskListStatus();
   });
 });
-// if (plannerListContainer == "") {
-//   openClosed.classList.add("open");
-// } else {
-//   openClosed.classList.add("closed");
-// }
-
-// console.log(plannerListContainer);
+upDateTaskListStatus();
